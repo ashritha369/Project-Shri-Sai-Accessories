@@ -81,3 +81,15 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - git branch -M main
 - git remote add origin https://github.com/ashritha369/Project-Shri-Sai-Accessories.git
 - git push -u origin main
+
+- Image URLs for categories:
+- https://i.ibb.co/3FDXNtW/crowns.jpg
+- https://i.ibb.co/93Vkxpn/crownsanddresses.jpg
+- https://i.ibb.co/Nm3sCt4/dresses.jpg
+- https://i.ibb.co/TqHX6NX/fullsets.jpg
+- https://i.ibb.co/FJYS8v9/varmalas.jpg
+
+- Go inside this `https://ashritha-h-a.imgbb.com/`
+
+- Used imgbb
+- `imgBB` is a popular image hosting platform that allows users to upload and share images easily. When you upload an image to imgBB, it assigns a unique URL to the image hosted on their servers, and i.ibb.co is the domain used for serving those images.
