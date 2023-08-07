@@ -6,6 +6,7 @@ export const UserContext = createContext({
   setCurrentUser: () => null,
 });
 //actual functional component
+// here children will be the one which comes under UserProvider,in this case when we import this under index.js like this <UserProvider><App/><UserProvider/> 'App' will be the children component
 export const UserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const value = { currentUser, setCurrentUser };
