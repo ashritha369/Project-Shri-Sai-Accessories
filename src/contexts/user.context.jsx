@@ -12,6 +12,7 @@ export const UserProvider = ({ children }) => {
   const value = { currentUser, setCurrentUser };
 
   useEffect(() => {
+    //' onAuthStateChangedListener ' is the callback that will be received in firebase util.js export fun as second parameter
     const unsubscribe = onAuthStateChangedListener((user) => {
       console.log(user);
       return unsubscribe;
