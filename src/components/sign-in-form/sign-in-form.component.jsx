@@ -19,7 +19,6 @@ const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
 
-
   const {setCurrentUser}=useContext(UserContext)
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -43,7 +42,7 @@ const SignInForm = () => {
           break;
 
         case "auth/user-not-found":
-          alert("no use associated with this email");
+          alert("no user associated with this email");
           break;
         default:
           console.log(error);
