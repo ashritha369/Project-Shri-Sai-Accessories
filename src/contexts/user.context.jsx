@@ -21,6 +21,7 @@ export const UserProvider = ({ children }) => {
     //' onAuthStateChangedListener ' is the callback that will be received in firebase util.js export fun as second parameter
     const unsubscribe = onAuthStateChangedListener( (user) => {
       if (user) {
+        //this 'user' is coming from 'createUserDocumentFromAuth' i.e from firebase utils
         createUserDocumentFromAuth(user);
       }
       setCurrentUser(user);
