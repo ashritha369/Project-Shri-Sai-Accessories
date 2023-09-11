@@ -57,7 +57,8 @@ export const createUserDocumentFromAuth = async (
   console.log(userSnapshot.exists());
 
   /*usually after we check userSnapshot.exists it returns false in console,which means no user data inside firestore collection
-    So we are checking for if `!userSnapshot.exists` , means if `no user data is present  in firestore`, returns true, 
+    So we a
+    re checking for if `!userSnapshot.exists` , means if `no user data is present  in firestore`, returns true, 
     then take the data from userAuth , destructure email and others and setDoc */
 
   if (!userSnapshot.exists()) {

@@ -95,3 +95,14 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - `imgBB` is a popular image hosting platform that allows users to upload and share images easily. When you upload an image to imgBB, it assigns a unique URL to the image hosted on their servers, and i.ibb.co is the domain used for serving those images.
 
 - (https://youtu.be/y-5fkR9vGdA)[https://youtu.be/y-5fkR9vGdA] used this link, for ENV file by Thapa Technical
+
+-Image urls for set of crowns
+
+- https://i.ibb.co/g6KzgZK/crown-dark-sapphire-blue.jpg
+- https://i.ibb.co/VjW76CT/crown-green.jpg
+- https://i.ibb.co/1ZwnYxS/crown-navy-blue.jpg
+- https://i.ibb.co/94yVb2B/crown-pink.jpg
+- https://i.ibb.co/Qmf9DQy/crown-purple.jpg
+- https://i.ibb.co/QmZVFpr/crown-sapphire-blue.jpg
+- https://i.ibb.co/gj55kKd/crown-sky-blue.jpg
+- https://i.ibb.co/nzm4c1V/crown-yellow.jpg
