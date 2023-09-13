@@ -3,6 +3,8 @@ import { Outlet, Link } from "react-router-dom";
 
 
 import CartIcon from "../../cart-icon/cart-icon.component";
+import CartDropdown from "../../cart-dropdown/cart-dropdown.component";
+
 import { UserContext } from "../../../contexts/user.context";
 
 import ShriSaiLogo from "../../../assets/Shri_Sai_Logo.png";
@@ -34,6 +36,8 @@ const Navigation = () => {
           )}
           <CartIcon/>
         </div>
+        {/* CART DROPDOWN AFTER CLICKING THE CART ICON */}
+        <CartDropdown/>
       </div>
       <Outlet />
     </Fragment>
