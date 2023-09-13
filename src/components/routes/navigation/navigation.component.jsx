@@ -1,6 +1,8 @@
 import { Fragment, useContext } from "react";
 import { Outlet, Link } from "react-router-dom";
 
+
+import CartIcon from "../../cart-icon/cart-icon.component";
 import { UserContext } from "../../../contexts/user.context";
 
 import ShriSaiLogo from "../../../assets/Shri_Sai_Logo.png";
@@ -30,6 +32,7 @@ const Navigation = () => {
               SIGN-IN
             </Link>
           )}
+          <CartIcon/>
         </div>
       </div>
       <Outlet />
