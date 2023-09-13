@@ -6,6 +6,7 @@ import CartIcon from "../../cart-icon/cart-icon.component";
 import CartDropdown from "../../cart-dropdown/cart-dropdown.component";
 
 import { UserContext } from "../../../contexts/user.context";
+import { CartContext } from "../../../contexts/cart.context";
 
 import ShriSaiLogo from "../../../assets/Shri_Sai_Logo.png";
 import { signOutUser } from "../../../utils/firebase/firebase.utils";
@@ -14,6 +15,8 @@ import "./navigation.styles.scss";
 
 const Navigation = () => {
   const { currentUser } = useContext(UserContext);
+  const { isCartOpen} = useContext(CartContext);
+  
  
   return (
     <Fragment>
@@ -37,7 +40,8 @@ const Navigation = () => {
           <CartIcon/>
         </div>
         {/* CART DROPDOWN AFTER CLICKING THE CART ICON */}
-        <CartDropdown/>
+
+        {isCartOpen && <CartDropdown/>}
       </div>
       <Outlet />
     </Fragment>
