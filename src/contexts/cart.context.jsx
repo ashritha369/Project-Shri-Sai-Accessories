@@ -13,6 +13,7 @@ const addCartItem = (cartItems, productToAdd) => {
         : cartItem
     );
   }
+ console.log('Correct',[...cartItems, { ...productToAdd, quantity: 1 }])
 
   //return new array with modified cartItems/ new cart item
   return [...cartItems, { ...productToAdd, quantity: 1 }];
