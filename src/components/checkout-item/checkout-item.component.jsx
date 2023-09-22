@@ -1,7 +1,12 @@
+import { useContext } from "react";
+import { CartContext } from "../../contexts/cart.context";
 import "./checkout-item.styles.scss";
 
 const CheckoutItem = ({ cartItem }) => {
   const { name, imageUrl, price, quantity } = cartItem;
+  const { clearItemFromCart } = useContext(CartContext);
+
+  const clearItemHandler = () => clearItemFromCart(cartItem);
   return (
     <div className="checkout-item-container">
       <div className="image-container">
@@ -11,7 +16,9 @@ const CheckoutItem = ({ cartItem }) => {
       <span className="quantity">{quantity}</span>
       <span className="price">{price}</span>
       {/* &#10005; code will create X format, helps us to act like remove button */}
-      <div className="remove-button">&#10005;</div>
+      <div className="remove-button" onClick={clearItemHandler}>
+        &#10005;
+      </div>
     </div>
   );
 };
