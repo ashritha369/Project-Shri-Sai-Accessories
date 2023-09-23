@@ -48,12 +48,14 @@ export const CartContext = createContext({
   removeItemFromCart: () => {},
   clearItemFromCart: () => {},
   cartCount: 0,
+  cartTotal:0
 });
 
 export const CartProvider = ({ children }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [cartCount, setCartCount] = useState(0);
+  const [cartTotal, setCartTotal] = useState(0);
   //everytime, the cartItems changes, i want to update the value of cartCount
   // when somethings changes based upon that change we want to do something: that is when we use useEffect hook
   useEffect(() => {
@@ -61,6 +63,13 @@ export const CartProvider = ({ children }) => {
       return total + cartItem.quantity;
     }, 0);
     setCartCount(newCartCount);
+  }, [cartItems]);
+ // working on total cart price
+  useEffect(() => {
+    const newCartTotal = cartItems.reduce((total, cartItem) => {
+      return total + cartItem.quantity * cartItem.price;
+    }, 0);
+    setCartTotal(newCartTotal);
   }, [cartItems]);
 
   const addItemToCart = (productToAdd) => {
@@ -82,6 +91,7 @@ export const CartProvider = ({ children }) => {
     cartItems,
     cartCount,
     clearItemFromCart,
+    cartTotal,
   };
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };
