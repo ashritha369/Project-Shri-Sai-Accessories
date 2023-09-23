@@ -70,7 +70,7 @@ export const CartProvider = ({ children }) => {
   const removeItemFromCart = (CartItemToRemove) => {
     setCartItems(removeCartItem(cartItems, CartItemToRemove));
   };
-
+ 
   const clearItemFromCart = (cartItemToClear) => {
     setCartItems(clearCartItem(cartItems, cartItemToClear));
   };
