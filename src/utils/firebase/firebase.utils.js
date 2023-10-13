@@ -9,7 +9,16 @@ import {
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
-import { getFirestore, doc, setDoc, getDoc,collection,writeBatch} from "firebase/firestore";
+import {
+  getFirestore,
+  doc,
+  setDoc,
+  getDoc,
+  collection,
+  writeBatch,
+  query,
+  getDocs,
+} from "firebase/firestore";
 
 const apiKey = process.env.REACT_APP_API_KEY;
 const appId = process.env.REACT_APP_APP_ID;
@@ -43,21 +52,66 @@ export const signInWithGoogleRedirect = () =>
 
 export const db = getFirestore();
 
-
-//Below code adds all the datas present inside shop-data.js to cloud 'firestore database' where -->collectionKey (parameter), objectsToAdd(parameter), 
+//Below code adds all the datas present inside shop-data.js to cloud 'firestore database' where -->collectionKey (parameter), objectsToAdd(parameter),
 // collectionKey=categories(argument), objectsToAdd=SHOP_DATA(argument)
 // addCollectionAndDocuments('categories',SHOP_DATA) is been called in products.context inside useEffect
-export const addCollectionAndDocuments=async(collectionKey,objectsToAdd)=>{
-const collectionRef=collection(db,collectionKey);
-const batch=writeBatch(db);
-objectsToAdd.forEach((object)=>{
-  const docRef=doc(collectionRef,object.title.toLowerCase());
-  batch.set(docRef,object);
-})
-await batch.commit();
-console.log('done')
-}
+export const addCollectionAndDocuments = async (
+  collectionKey,
+  objectsToAdd
+) => {
+  const collectionRef = collection(db, collectionKey);
+  const batch = writeBatch(db);
+  objectsToAdd.forEach((object) => {
+    const docRef = doc(collectionRef, object.title.toLowerCase());
+    batch.set(docRef, object);
+  });
+  await batch.commit();
+  console.log("done");
+};
 
+export const getCategoriesAndDocuments = async () => {
+  const collectionRef = collection(db, "categories");
+  const q = query(collectionRef);
+
+  const querySnapshot = await getDocs(q);
+  const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+    const {title,items}=docSnapshot.data();
+    acc[title.toLowerCase()]=items;
+    return acc;
+  },{});
+  return categoryMap;
+        /*
+      'categoryMap' is an Object we receive it like below
+      Object:{
+          crowns: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+          crowns+dresses: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+          dresses: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+          full sets: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+          varmalas: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+          [[Prototype]]: Object
+        }
+      */
+};
+
+/*
+{
+  crowns:{
+    title:"Crowns",
+    items:[
+      {},
+      {}
+    ]
+  },
+  dress:{
+    title:"Dress",
+    items:[
+      {},
+      {}
+    ]
+
+  }
+}
+*/
 export const createUserDocumentFromAuth = async (
   userAuth,
   additionalInformation = {}
@@ -108,5 +162,5 @@ export const signAuthUserWithEmailAndPassword = async (email, password) => {
 export const signOutUser = async () => await signOut(auth);
 
 //we are giving callbak to onAuthStateChangedListener
-export const onAuthStateChangedListener =  (callback) =>
-   onAuthStateChanged(auth,callback);
+export const onAuthStateChangedListener = (callback) =>
+  onAuthStateChanged(auth, callback);
