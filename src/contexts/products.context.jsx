@@ -11,7 +11,7 @@ export const ProductsProvider = ({ children }) => {
 
   useEffect(() => {
     const getCategoriesMap = async () => {
-      const categoryMap=await getCategoriesAndDocuments();
+      const categoryMap = await getCategoriesAndDocuments();
       console.log(categoryMap);
       /*
       'categoryMap' is an Object we receive it like below
@@ -24,9 +24,14 @@ export const ProductsProvider = ({ children }) => {
           [[Prototype]]: Object
         }
       */
+      /*
+     we learned about Objects (Hash Table data structure) being better for
+      searching for items than Array. 
+      This is a common computing optimization when talking about data structures. 
+     */
     };
     getCategoriesMap();
-  },[]);
+  }, []);
 
   /*passing all the data inside SHOP_DATA(local file) once to 'firestore cloud database', 
   once passed all the data will be stored there and even if we comment or take off below lines , 
