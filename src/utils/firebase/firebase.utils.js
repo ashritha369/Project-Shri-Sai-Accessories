@@ -9,7 +9,7 @@ import {
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
-import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore";
+import { getFirestore, doc, setDoc, getDoc,collection,writeBatch} from "firebase/firestore";
 
 const apiKey = process.env.REACT_APP_API_KEY;
 const appId = process.env.REACT_APP_APP_ID;
@@ -42,6 +42,10 @@ export const signInWithGoogleRedirect = () =>
   signInWithRedirect(auth, googleProvider);
 
 export const db = getFirestore();
+
+export const addCollectionAndDocuments=async(collectionKey,objectsToAdd)=>{
+const collectionRef=collection(db,collectionKey);
+}
 
 export const createUserDocumentFromAuth = async (
   userAuth,
