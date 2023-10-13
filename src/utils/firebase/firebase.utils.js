@@ -43,8 +43,19 @@ export const signInWithGoogleRedirect = () =>
 
 export const db = getFirestore();
 
+
+//Below code adds all the datas present inside shop-data.js to cloud 'firestore database' where -->collectionKey (parameter), objectsToAdd(parameter), 
+// collectionKey=categories(argument), objectsToAdd=SHOP_DATA(argument)
+// addCollectionAndDocuments('categories',SHOP_DATA) is been called in products.context inside useEffect
 export const addCollectionAndDocuments=async(collectionKey,objectsToAdd)=>{
 const collectionRef=collection(db,collectionKey);
+const batch=writeBatch(db);
+objectsToAdd.forEach((object)=>{
+  const docRef=doc(collectionRef,object.title.toLowerCase());
+  batch.set(docRef,object);
+})
+await batch.commit();
+console.log('done')
 }
 
 export const createUserDocumentFromAuth = async (
