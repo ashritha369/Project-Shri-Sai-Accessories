@@ -21,9 +21,15 @@ const Navigation = () => {
   return (
     <Fragment>
       <div className="navigation">
+        <div>
         <Link className="logo-container" to="/">
           <img src={ShriSaiLogo} className="logo" />
         </Link>
+        </div>
+        <div className="name-of-project">
+          SHRI SAI ACCESSORIES
+        </div>
+
         <div className="nav-links-container">
           <Link className="nav-link" to="/shop">
             SHOP
