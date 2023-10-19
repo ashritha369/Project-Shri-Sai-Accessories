@@ -24,7 +24,9 @@ const Navigation = () => {
             <img src={ShriSaiLogo} className="logo" />
           </Link>
         </div>
-        <div className="name-of-project">SHRI SAI ACCESSORIES</div>
+        <div className="name-of-project-orange">
+          <span className="name-of-project-purple">SHRI SAI</span> ACCESSORIES
+        </div>
 
         <div className="nav-links-container">
           <Link className="nav-link" to="/shop">
