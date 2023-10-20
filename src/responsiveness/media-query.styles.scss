@@ -1,0 +1,101 @@
+$breakpoint-x-small: 250px;
+$breakpoint-small: 768px;
+$breakpoint-medium: 1024px;
+$breakpoint-large: 1200px;
+
+//NAVIGATION
+
+.navigation {
+  display: grid;
+  gap: 5px;
+  @media screen and (max-width: $breakpoint-x-small) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  @media screen and (min-width: $breakpoint-x-small) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  @media screen and (min-width: $breakpoint-medium) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (min-width: $breakpoint-large) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .nav-links-container {
+    display: grid;
+    gap: 5px;
+    @media screen and (max-width: $breakpoint-x-small) {
+        grid-template-columns: repeat(1, 1fr);
+      }
+      @media screen and (min-width: $breakpoint-x-small) {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    
+      @media screen and (min-width: $breakpoint-medium) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    
+      @media screen and (min-width: $breakpoint-large) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+  }
+}
+
+.directory-container {
+  display: grid;
+  gap: 5px;
+  
+  @media screen and (max-width: $breakpoint-x-small) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  @media screen and (min-width: $breakpoint-x-small) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  @media screen and (min-width: $breakpoint-medium) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  @media screen and (min-width: $breakpoint-large) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.category-preview-container {
+    display: grid;
+    gap: 5px;
+    @media screen and (max-width: $breakpoint-x-small) {
+        grid-template-columns: repeat(1, 1fr);
+      }
+      @media screen and (min-width: $breakpoint-x-small) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    
+      @media screen and (min-width: $breakpoint-medium) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    
+      @media screen and (min-width: $breakpoint-large) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+}
+
+.category-container {
+    display: grid;
+    gap: 5px;
+    @media screen and (max-width: $breakpoint-x-small) {
+        grid-template-columns: repeat(1, 1fr);
+      }
+      @media screen and (min-width: $breakpoint-x-small) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    
+      @media screen and (min-width: $breakpoint-medium) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    
+      @media screen and (min-width: $breakpoint-large) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+}
