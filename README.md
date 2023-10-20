@@ -106,3 +106,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - https://i.ibb.co/QmZVFpr/crown-sapphire-blue.jpg
 - https://i.ibb.co/gj55kKd/crown-sky-blue.jpg
 - https://i.ibb.co/nzm4c1V/crown-yellow.jpg
+
+- usage of grids
+- grid-column: 1 / 2: The item starts in the first column and ends in the second column, occupying a single column.
+- grid-column: 2 / 3: The item starts in the second column and ends in the third column, occupying a single column.
+- grid-column: 3 / 4: The item starts in the third column and ends in the fourth column, occupying a single column.

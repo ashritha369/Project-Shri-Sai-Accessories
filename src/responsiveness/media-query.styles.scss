@@ -4,98 +4,136 @@ $breakpoint-medium: 1024px;
 $breakpoint-large: 1200px;
 
 //NAVIGATION
-
-.navigation {
-  display: grid;
-  gap: 5px;
-  @media screen and (max-width: $breakpoint-x-small) {
-    grid-template-columns: repeat(1, 1fr);
-  }
-  @media screen and (min-width: $breakpoint-x-small) {
-    grid-template-columns: repeat(1, 1fr);
-  }
-
-  @media screen and (min-width: $breakpoint-medium) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media screen and (min-width: $breakpoint-large) {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .nav-links-container {
-    display: grid;
-    gap: 5px;
-    @media screen and (max-width: $breakpoint-x-small) {
-        grid-template-columns: repeat(1, 1fr);
-      }
-      @media screen and (min-width: $breakpoint-x-small) {
-        grid-template-columns: repeat(1, 1fr);
-      }
-    
-      @media screen and (min-width: $breakpoint-medium) {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    
-      @media screen and (min-width: $breakpoint-large) {
-        grid-template-columns: repeat(4, 1fr);
-      }
+@media (max-width: 768px) {
+  .navigation {
+    grid-template-columns: 1fr; 
+    display: block;
+    height: 100%;
   }
 }
 
-.directory-container {
-  display: grid;
-  gap: 5px;
+@media (max-width: 350px) {
+  .navigation {
+    .name-of-project-orange{
+      font-size: medium;
+    }
+    .name-of-project-purple{
+      font-size: medium;
+    }
+    .nav-links-container{
+      .nav-link{
+        font-size: small;
+      }
+    }
+  }
+  .nav-links-container{
+    grid-template-columns: 1fr; 
+    display: block;
+    height: 100%;
+  }
+}
+
+//DIRECTORY
+@media(max-width:450px){
+  .directory-item-container .body h2 {
+    font-weight: bold;
+    margin: 0 6px 0;
+    font-size: 10px;
+ 
+   .body p {
+   
+      font-size: 9px;
+      text-align: center;
+  }
+}
+}
+// CATEGORY PREVIEW
+@media(max-width:450px){
+  .category-preview-container {
+    .preview{
+      display: block;
+    }
+    .title {
+      font-size: 22px;
+      margin-bottom: 25px;
+
+  }
+  }
+  .category-container {
+    display: block;
+}
+.product-card-container button {
+  width: 69%;
+  opacity: 0.7;
+  position: absolute;
+  top: 206px;
+  display: none;
+  padding: 18px ;
+}
+.button-container {
+  min-width: 165px;
+  width: auto;
+  // height: 50px;
+  letter-spacing: 0.5px;
+  line-height: 5px; 
+  padding: 0 5px 0 5px;
+  font-size: 14px;
+  background-color: purple;
+  color: white;
+  text-transform: uppercase;
+  font-family: "Open Sans Condensed";
+  font-weight: bolder;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+.button-container.inverted:hover {
+  padding: 22px;
+}
+.button-container.inverted{
+  padding: 22px;
+}
+.button-container.google-sign-in {
+  padding: 24px;
+}
+.button-container.google-sign-in:hover {
+  padding: 24px;
+}
+.directory-item-container .body p {
+  font-weight: lighter;
+  font-size: 10px;
+  text-align: center;
+}
+}
+
+@media (max-width: 768px) {
+  .authentication-container {
+    width: 300px;
+    // justify-content: space-between;
+    margin: 30px auto !important;
+    flex-direction: column;
+  }
   
-  @media screen and (max-width: $breakpoint-x-small) {
-    grid-template-columns: repeat(1, 1fr);
+  .sign-up-container {
+    display: flex;
+    flex-direction: column;
+    width: 380px;
+    margin: 5px;
   }
-  @media screen and (min-width: $breakpoint-x-small) {
-    grid-template-columns: repeat(1, 1fr);
+  .sign-up-container {
+    width: 100%; /* Set to full width for stacking on small screens */
   }
-
-  @media screen and (min-width: $breakpoint-medium) {
-    grid-template-columns: repeat(5, 1fr);
+  .responsive-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
   }
-
-  @media screen and (min-width: $breakpoint-large) {
-    grid-template-columns: repeat(2, 1fr);
+  
+  .break-line::before {
+    content: '\A'; /* Unicode character for a line break */
+    white-space: pre;
   }
-}
-.category-preview-container {
-    display: grid;
-    gap: 5px;
-    @media screen and (max-width: $breakpoint-x-small) {
-        grid-template-columns: repeat(1, 1fr);
-      }
-      @media screen and (min-width: $breakpoint-x-small) {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    
-      @media screen and (min-width: $breakpoint-medium) {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    
-      @media screen and (min-width: $breakpoint-large) {
-        grid-template-columns: repeat(4, 1fr);
-      }
-}
-
-.category-container {
-    display: grid;
-    gap: 5px;
-    @media screen and (max-width: $breakpoint-x-small) {
-        grid-template-columns: repeat(1, 1fr);
-      }
-      @media screen and (min-width: $breakpoint-x-small) {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    
-      @media screen and (min-width: $breakpoint-medium) {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    
-      @media screen and (min-width: $breakpoint-large) {
-        grid-template-columns: repeat(4, 1fr);
-      }
+  
 }
