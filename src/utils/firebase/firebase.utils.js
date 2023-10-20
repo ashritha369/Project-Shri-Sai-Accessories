@@ -68,7 +68,62 @@ export const addCollectionAndDocuments = async (
   await batch.commit();
   console.log("done");
 };
-
+//RE UPLOADED THE DATA FOR CROWNS AND DRESSES
+addCollectionAndDocuments("categories", [
+  {
+    title: "CROWNS+DRESSES",
+    items:  [
+      {
+          id: 17,
+          name: "Dark Sapphire Blue Crown with Dress",
+          imageUrl: "https://i.ibb.co/FsLZQhJ/crown-with-dress-dark-sapphire-blue.jpg",
+          price: 25
+        },
+        {
+          id: 18,
+          name: "Green Crown with Dress",
+          imageUrl: "https://i.ibb.co/JxsrhW4/crown-with-dress-green.jpg",
+          price: 18
+        },
+        {
+          id: 19,
+          name: "Sky Blue Crown with Dress",
+          imageUrl: "https://i.ibb.co/VLqvrK3/crown-with-dress-sky-blue.jpg",
+          price: 35
+        },
+        {
+          id: 20,
+          name: "Sapphire Blue Crown with Dress",
+          imageUrl: " https://i.ibb.co/qRnn8dY/crown-with-dress-sapphire-blue.jpg",
+          price: 25
+        },
+        {
+          id: 21,
+          name: "Pink Crown with Dress",
+          imageUrl: "https://i.ibb.co/Gkp4swT/crown-with-dress-pink.jpg",
+          price: 18
+        },
+        {
+          id: 22,
+          name: "Navy Blue Crown with Dress",
+          imageUrl: "https://i.ibb.co/g4kJp6r/crown-with-dress-navy-blue.jpg",
+          price: 14
+        },
+        {
+          id: 23,
+          name: "Purple Crown with Dress",
+          imageUrl: "https://i.ibb.co/yqpXPmn/crown-with-dress-purple.jpg",
+          price: 18
+        },
+        {
+          id: 24,
+          name: "Yellow Crown with Dress",
+          imageUrl: "https://i.ibb.co/47snhph/crown-with-dress-yellow.jpg",
+          price: 14
+        }
+    ],
+  },
+]);
 export const getCategoriesAndDocuments = async () => {
   const collectionRef = collection(db, "categories");
   const q = query(collectionRef);
