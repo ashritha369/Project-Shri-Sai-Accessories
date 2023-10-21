@@ -89,10 +89,12 @@ $breakpoint-large: 1200px;
   justify-content: center;
 }
 .button-container.inverted:hover {
-  padding: 22px;
+  padding: 17px;
+  font-size: 10.5px;
 }
 .button-container.inverted{
-  padding: 22px;
+  padding: 17px;
+  font-size: 10.5px;
 }
 .button-container.google-sign-in {
   padding: 24px;
@@ -240,4 +242,54 @@ $breakpoint-large: 1200px;
     padding: 10px;
 }
 
+}
+
+@media (max-width: 1400px){
+  .button-container {
+    min-width: 119px;
+    height: 37px;
+    letter-spacing: 0.5px;
+    line-height: 32px;
+    padding: 3px 8px 0 8px;
+    font-size: 10px;
+    text-align: center;
+  }
+}
+@media (max-width: 640px){
+  .button-container {
+    min-width: 69px;
+    height: 50px;
+    letter-spacing: 0.5px;
+    line-height: 14px;
+    padding: 8px 3px 0 5px;
+    font-size: 10px;
+    text-align: center;
+
+  }
+  .product-card-container button {
+    width: 66%;
+    opacity: 0.7;
+    position: absolute;
+    top: 242px;
+    display: none;
+}
+}
+@media (max-width: 260px){
+  .button-container {
+    min-width: 69px;
+    height: 65px;
+    letter-spacing: 0.5px;
+    line-height: 10px;
+    padding: 8px 3px 0 5px;
+    font-size: 10px;
+    text-align: center;
+
+  }
+  .product-card-container button {
+    width: 56%;
+    opacity: 0.7;
+    position: absolute;
+    top: 224px;
+    display: none;
+}
 }
