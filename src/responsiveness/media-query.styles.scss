@@ -123,7 +123,7 @@ $breakpoint-large: 1200px;
 
 @media (max-width: 768px) {
   .authentication-container {
-    width: 300px;
+    width: 100%;
     // justify-content: space-between;
     margin: 30px auto !important;
     flex-direction: column;
