@@ -9,6 +9,7 @@ $breakpoint-large: 1200px;
     grid-template-columns: 1fr; 
     display: block;
     height: 100%;
+    width: 100%;
   }
 }
 
@@ -32,7 +33,14 @@ $breakpoint-large: 1200px;
     height: 100%;
   }
 }
-
+@media (max-width: 450px) {
+.navigation .name-of-project-orange {
+  font-size: x-large;
+}
+.navigation .name-of-project-purple {
+  font-size: x-large;
+}
+}
 //DIRECTORY
 @media(max-width:450px){
   .directory-item-container .body h2 {
@@ -50,6 +58,8 @@ $breakpoint-large: 1200px;
 // CATEGORY PREVIEW
 @media(max-width:450px){
   .category-preview-container {
+    width: 100%;
+    margin: auto;
     .preview{
       display: block;
     }
@@ -61,6 +71,8 @@ $breakpoint-large: 1200px;
   }
   .category-container {
     display: block;
+    width: 100%;
+    margin: auto;
 }
 .product-card-container button {
   width: 69%;
@@ -89,10 +101,12 @@ $breakpoint-large: 1200px;
   justify-content: center;
 }
 .button-container.inverted:hover {
-  padding: 22px;
+  padding: 17px;
+  font-size: 10.5px;
 }
 .button-container.inverted{
-  padding: 22px;
+  padding: 17px;
+  font-size: 10.5px;
 }
 .button-container.google-sign-in {
   padding: 24px;
@@ -240,4 +254,60 @@ $breakpoint-large: 1200px;
     padding: 10px;
 }
 
+}
+
+@media (max-width: 1400px){
+  .button-container {
+    min-width: 119px;
+    height: 37px;
+    letter-spacing: 0.5px;
+    line-height: 32px;
+    padding: 3px 8px 0 8px;
+    font-size: 10px;
+    text-align: center;
+  }
+}
+@media (max-width: 640px){
+  .button-container {
+    min-width: 69px;
+    height: 50px;
+    letter-spacing: 0.5px;
+    line-height: 14px;
+    padding: 8px 3px 0 5px;
+    font-size: 10px;
+    text-align: center;
+
+  }
+  .product-card-container button {
+    width: 66%;
+    opacity: 0.7;
+    position: absolute;
+    top: 242px;
+    display: none;
+}
+}
+@media (max-width: 260px){
+  .button-container {
+    min-width: 69px;
+    height: 65px;
+    letter-spacing: 0.5px;
+    line-height: 10px;
+    padding: 8px 3px 0 5px;
+    font-size: 10px;
+    text-align: center;
+
+  }
+  .product-card-container button {
+    width: 56%;
+    opacity: 0.7;
+    position: absolute;
+    top: 224px;
+    display: none;
+}
+}
+@media (max-width: 1800px){
+.directory-item-container .body {
+  height: 127px;
+  padding: 5px;
+}
 }

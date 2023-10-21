@@ -93,25 +93,6 @@ export const getCategoriesAndDocuments = async () => {
       */
 };
 
-/*
-{
-  crowns:{
-    title:"Crowns",
-    items:[
-      {},
-      {}
-    ]
-  },
-  dress:{
-    title:"Dress",
-    items:[
-      {},
-      {}
-    ]
-
-  }
-}
-*/
 export const createUserDocumentFromAuth = async (
   userAuth,
   additionalInformation = {}
