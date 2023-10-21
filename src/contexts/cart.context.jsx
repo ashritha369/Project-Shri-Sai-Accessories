@@ -115,6 +115,4 @@ Cart Item
   imageUrl,
   quantity
 }
-
-
 */
