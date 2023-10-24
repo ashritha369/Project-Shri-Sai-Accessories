@@ -11,7 +11,7 @@ import ShriSaiLogo from "../../../assets/Shri_Sai_Logo.png";
 import { signOutUser } from "../../../utils/firebase/firebase.utils";
 
 import "./navigation.styles.scss";
-import Button from "../../button/button.component";
+
 
 const Navigation = () => {
   const { currentUser } = useContext(UserContext);
@@ -22,7 +22,7 @@ const Navigation = () => {
       <div className="navigation">
         <div>
           <Link className="logo-container" to="/">
-            <img src={ShriSaiLogo} className="logo" />
+            <img src={ShriSaiLogo} className="logo" alt="logo" />
           </Link>
         </div>
 
