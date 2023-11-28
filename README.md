@@ -81,8 +81,17 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - git branch -M main
 - git remote add origin https://github.com/ashritha369/Project-Shri-Sai-Accessories.git
 - git push -u origin main
+## CREATING REACT WEB APP
+- npx create-react-app my-app
+- cd my-app
+- npm start or yarn start
 
-- Image URLs for categories:
+- **Our project it is**
+- npx create-react-app shri-sai-accessories
+- cd shri-sai-accessories
+- npm start or yarn start
+
+## Image URLs for categories:
 - https://i.ibb.co/3FDXNtW/crowns.jpg
 - https://i.ibb.co/93Vkxpn/crownsanddresses.jpg
 - https://i.ibb.co/Nm3sCt4/dresses.jpg
@@ -111,3 +120,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - grid-column: 1 / 2: The item starts in the first column and ends in the second column, occupying a single column.
 - grid-column: 2 / 3: The item starts in the second column and ends in the third column, occupying a single column.
 - grid-column: 3 / 4: The item starts in the third column and ends in the fourth column, occupying a single column.
+
+## React Learning and Installing
+
+- Installing :[https://create-react-app.dev/](https://create-react-app.dev/)
+- Learning: [https://react.dev/learn](https://react.dev/learn)
+- Hooks:[https://react.dev/reference/react/hooks](https://react.dev/reference/react/hooks)

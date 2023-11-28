@@ -14,6 +14,7 @@ const CategoriesPreview = () => {
           <CategoryPreview key={title} title={title} products={products} />
         );
       })}
+      
     </Fragment>
   );
 };
