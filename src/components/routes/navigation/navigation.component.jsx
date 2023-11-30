@@ -26,7 +26,7 @@ const Navigation = () => {
           </Link>
         </div>
 
-        <div className="name-of-project-orange">
+        <div className="name-of-project-with-orangeshade">
           <span className="name-of-project-purple">SHRI SAI</span> ACCESSORIES
         </div>
 

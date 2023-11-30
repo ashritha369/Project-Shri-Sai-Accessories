@@ -4,7 +4,6 @@ import Category from '../category/category.component';
 import "./shop.styles.scss";
 
 const Shop = () => {
-  // const { categoriesMap } = useContext(CategoriesContext);
   return (
 <Routes>
   <Route index element={<CategoriesPreview/>}/>
