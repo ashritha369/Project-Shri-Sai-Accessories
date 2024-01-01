@@ -19,3 +19,8 @@ const App = () => {
 };
 
 export default App;
+
+/*
+
+In the context of React Router, the * (asterisk or wildcard) is used as a placeholder 
+to match any value in the specified part of the URL. In your example:<Route path="shop/*" element={<Shop />} /> */
