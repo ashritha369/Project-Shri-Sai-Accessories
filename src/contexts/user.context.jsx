@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useEffect, useReducer } from "react";
 
 import {
   onAuthStateChangedListener,
@@ -11,15 +11,47 @@ export const UserContext = createContext({
   setCurrentUser: () => null,
 });
 
-//actual functional component
-// here children will be the one which comes under UserProvider,in this case when we import this under index.js like this <UserProvider><App/><UserProvider/> 'App' will be the children component
+export const USER_ACTION_TYPES = {
+  SET_CURRENT_USER: "SET_CURRENT_USER",
+};
+
+// we use reducer instead of use-state to store the values
+const userReducer = (state, action) => {
+  console.log(`dispatched`);
+  console.log(action);
+  const { type, payload } = action;
+  switch (type) {
+    case USER_ACTION_TYPES.SET_CURRENT_USER:
+      return {
+        ...state,
+        currentUser: payload,
+      };
+    default:
+      throw new Error(`Unhandled type ${type} in userReducer`);
+  }
+};
+
+const INITIAL_STATE = {
+  currentUser: null,
+};
 export const UserProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState(null);
+  // const [currentUser, setCurrentUser] = useState(null);
+  // INSTEAD OF USING USESTATE, WE ARE USING REDUCER
+
+  //<<<<<<<<<<<<<<<<< USAGE OF REDUCER>>>>>>>>>>>>>>>>
+  const [{ currentUser }, dispatch] = useReducer(userReducer, INITIAL_STATE);
+  console.log(currentUser);
+  // destructuring state
+  //const { currentUser } = state;
+  const setCurrentUser = (user) => {
+    dispatch({ type: USER_ACTION_TYPES.SET_CURRENT_USER, payload: user });
+  };
+  // <<<<<<<<<<<<<<<<< USAGE OF REDUCER>>>>>>>>>>>>>>>>
   const value = { currentUser, setCurrentUser };
 
   useEffect(() => {
     //' onAuthStateChangedListener ' is the callback that will be received in firebase util.js export fun as second parameter
-    const unsubscribe = onAuthStateChangedListener( (user) => {
+    const unsubscribe = onAuthStateChangedListener((user) => {
       if (user) {
         //this 'user' is coming from 'createUserDocumentFromAuth' i.e from firebase utils
         createUserDocumentFromAuth(user);
