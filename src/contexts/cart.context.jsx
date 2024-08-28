@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useReducer } from "react";
 
 const addCartItem = (cartItems, productToAdd) => {
   //find if cartItems contains productsToAdd
@@ -48,9 +48,29 @@ export const CartContext = createContext({
   removeItemFromCart: () => {},
   clearItemFromCart: () => {},
   cartCount: 0,
-  cartTotal:0
+  cartTotal: 0,
 });
 
+const INITIAL_STATE = {
+  isCartOpen: false,
+  cartItems: [],
+  cartCount: 0,
+  cartTotal: 0,
+};
+
+const cartReducer = (state, action) => {
+  const { type, payload } = action;
+
+  switch (type) {
+    case "SET_CART_ITEMS":
+      return {
+        ...state,
+        ...payload,
+      };
+    default:
+      throw new Error(`Unhandled type of ${type} in cartReducer`);
+  }
+};
 export const CartProvider = ({ children }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
@@ -64,7 +84,7 @@ export const CartProvider = ({ children }) => {
     }, 0);
     setCartCount(newCartCount);
   }, [cartItems]);
- // working on total cart price
+  // working on total cart price
   useEffect(() => {
     const newCartTotal = cartItems.reduce((total, cartItem) => {
       return total + cartItem.quantity * cartItem.price;
@@ -79,7 +99,7 @@ export const CartProvider = ({ children }) => {
   const removeItemFromCart = (CartItemToRemove) => {
     setCartItems(removeCartItem(cartItems, CartItemToRemove));
   };
- 
+
   const clearItemFromCart = (cartItemToClear) => {
     setCartItems(clearCartItem(cartItems, cartItemToClear));
   };
@@ -95,24 +115,3 @@ export const CartProvider = ({ children }) => {
   };
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };
-
-//We know that the format of 'product' is
-/*
-product
-{
-  id,
-  name,
-  price,
-  imageUrl
-}
-
-// format of cartItem inside cartDropdown are
-Cart Item
-{
-  id,
-  name,
-  price,
-  imageUrl,
-  quantity
-}
-*/
