@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useReducer } from "react";
+import { createContext, useReducer } from "react";
 
 const addCartItem = (cartItems, productToAdd) => {
   //find if cartItems contains productsToAdd
@@ -72,40 +72,81 @@ const cartReducer = (state, action) => {
   }
 };
 export const CartProvider = ({ children }) => {
-  const [isCartOpen, setIsCartOpen] = useState(false);
-  const [cartItems, setCartItems] = useState([]);
-  const [cartCount, setCartCount] = useState(0);
-  const [cartTotal, setCartTotal] = useState(0);
-  //everytime, the cartItems changes, i want to update the value of cartCount
-  // when somethings changes based upon that change we want to do something: that is when we use useEffect hook
-  useEffect(() => {
-    const newCartCount = cartItems.reduce((total, cartItem) => {
-      return total + cartItem.quantity;
-    }, 0);
-    setCartCount(newCartCount);
-  }, [cartItems]);
-  // working on total cart price
-  useEffect(() => {
-    const newCartTotal = cartItems.reduce((total, cartItem) => {
+  // const [isCartOpen, setIsCartOpen] = useState(false);
+  // const [cartItems, setCartItems] = useState([]);
+  // const [cartCount, setCartCount] = useState(0);
+  // const [cartTotal, setCartTotal] = useState(0);
+
+  const [{ cartItems, isCartOpen, cartCount, cartTotal }, dispatch] =
+    useReducer(cartReducer, INITIAL_STATE);
+
+  // //everytime, the cartItems changes, i want to update the value of cartCount
+  // // when somethings changes based upon that change we want to do something: that is when we use useEffect hook
+  // useEffect(() => {
+  //   const newCartCount = cartItems.reduce((total, cartItem) => {
+  //     return total + cartItem.quantity;
+  //   }, 0);
+  //   setCartCount(newCartCount);
+  // }, [cartItems]);
+  // // working on total cart price
+  // useEffect(() => {
+  //   const newCartTotal = cartItems.reduce((total, cartItem) => {
+  //     return total + cartItem.quantity * cartItem.price;
+  //   }, 0);
+  //   setCartTotal(newCartTotal);
+  // }, [cartItems]);
+
+  // //
+
+  const updateCartItemsReducer = (newCartItems) => {
+    // generate newCartTotal
+    const newCartTotal = newCartItems.reduce((total, cartItem) => {
       return total + cartItem.quantity * cartItem.price;
     }, 0);
-    setCartTotal(newCartTotal);
-  }, [cartItems]);
+    //  generate newCartCount
+    const newCartCount = newCartItems.reduce((total, cartItem) => {
+      return total + cartItem.quantity;
+    }, 0);
+    //dispatch new action with payload
+    dispatch({
+      type: "SET_CART_ITEMS",
+      payload: {
+        cartItems: newCartItems,
+        cartTotal: newCartTotal,
+        cartCount: newCartCount,
+      },
+    });
 
+    /*
+    generate newCartTotal
+    
+    generate newCartCount
+
+    dispatch new action with payload={
+    newCartItems,
+    newCartTotal,
+    newCartCount
+    
+    }
+    */
+  };
   const addItemToCart = (productToAdd) => {
-    setCartItems(addCartItem(cartItems, productToAdd));
+    const newCartItems = addCartItem(cartItems, productToAdd);
+    updateCartItemsReducer(newCartItems);
   };
 
   const removeItemFromCart = (CartItemToRemove) => {
-    setCartItems(removeCartItem(cartItems, CartItemToRemove));
+    const newCartItems = removeCartItem(cartItems, CartItemToRemove);
+    updateCartItemsReducer(newCartItems);
   };
 
   const clearItemFromCart = (cartItemToClear) => {
-    setCartItems(clearCartItem(cartItems, cartItemToClear));
+    const newCartItems = clearCartItem(cartItems, cartItemToClear);
+    updateCartItemsReducer(newCartItems);
   };
   const value = {
     isCartOpen,
-    setIsCartOpen,
+    setIsCartOpen: () => {},
     addItemToCart,
     removeItemFromCart,
     cartItems,
