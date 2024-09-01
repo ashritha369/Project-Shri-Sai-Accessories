@@ -83,31 +83,8 @@ const cartReducer = (state, action) => {
   }
 };
 export const CartProvider = ({ children }) => {
-  // const [isCartOpen, setIsCartOpen] = useState(false);
-  // const [cartItems, setCartItems] = useState([]);
-  // const [cartCount, setCartCount] = useState(0);
-  // const [cartTotal, setCartTotal] = useState(0);
-
   const [{ cartItems, isCartOpen, cartCount, cartTotal }, dispatch] =
     useReducer(cartReducer, INITIAL_STATE);
-
-  // //everytime, the cartItems changes, i want to update the value of cartCount
-  // // when somethings changes based upon that change we want to do something: that is when we use useEffect hook
-  // useEffect(() => {
-  //   const newCartCount = cartItems.reduce((total, cartItem) => {
-  //     return total + cartItem.quantity;
-  //   }, 0);
-  //   setCartCount(newCartCount);
-  // }, [cartItems]);
-  // // working on total cart price
-  // useEffect(() => {
-  //   const newCartTotal = cartItems.reduce((total, cartItem) => {
-  //     return total + cartItem.quantity * cartItem.price;
-  //   }, 0);
-  //   setCartTotal(newCartTotal);
-  // }, [cartItems]);
-
-  // //
 
   const updateCartItemsReducer = (newCartItems) => {
     // generate newCartTotal
@@ -126,19 +103,6 @@ export const CartProvider = ({ children }) => {
         cartCount: newCartCount,
       })
     );
-
-    /*
-    generate newCartTotal
-    
-    generate newCartCount
-
-    dispatch new action with payload={
-    newCartItems,
-    newCartTotal,
-    newCartCount
-    
-    }
-    */
   };
   const addItemToCart = (productToAdd) => {
     const newCartItems = addCartItem(cartItems, productToAdd);
