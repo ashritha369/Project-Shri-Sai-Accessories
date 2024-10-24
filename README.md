@@ -81,7 +81,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - git branch -M main
 - git remote add origin https://github.com/ashritha369/Project-Shri-Sai-Accessories.git
 - git push -u origin main
+
 ## CREATING REACT WEB APP
+
 - npx create-react-app my-app
 - cd my-app
 - npm start or yarn start
@@ -92,6 +94,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - npm start or yarn start
 
 ## Image URLs for categories:
+
 - https://i.ibb.co/3FDXNtW/crowns.jpg
 - https://i.ibb.co/93Vkxpn/crownsanddresses.jpg
 - https://i.ibb.co/Nm3sCt4/dresses.jpg
@@ -126,3 +129,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - Installing :[https://create-react-app.dev/](https://create-react-app.dev/)
 - Learning: [https://react.dev/learn](https://react.dev/learn)
 - Hooks:[https://react.dev/reference/react/hooks](https://react.dev/reference/react/hooks)
+
+## React Redux
+
+`yarn add redux react-redux redux-logger`
