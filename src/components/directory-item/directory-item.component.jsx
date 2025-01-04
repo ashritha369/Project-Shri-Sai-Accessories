@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const DirectoryItem = ({ category }) => {
   const { imageUrl, title } = category;
-  console.log('title',title)
-  const [firstPart, secondPart] = title.split('+');
+  // console.log("title", title);
+  const [firstPart, secondPart] = title.split("+");
   return (
     <div className="directory-item-container">
       <div
@@ -17,10 +17,10 @@ const DirectoryItem = ({ category }) => {
         <Link to={`/shop/${title.toLowerCase()}`}>
           {/* <h2 className="responsive-title">{title}</h2> */}
           <h2 className="responsive-title">
-          {firstPart}
-          <span className="break-line" aria-hidden="true"></span>
-          {`${secondPart === undefined ? '' : `+`+secondPart}`}
-        </h2>
+            {firstPart}
+            <span className="break-line" aria-hidden="true"></span>
+            {`${secondPart === undefined ? "" : `+` + secondPart}`}
+          </h2>
           <p>Shop Now</p>
         </Link>
       </div>

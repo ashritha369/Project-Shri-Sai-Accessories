@@ -1,4 +1,4 @@
-import { createContext, useEffect } from "react";
+import { createContext, useEffect, useReducer } from "react";
 // import { addCollectionAndDocuments } from "../utils/firebase/firebase.utils.js";
 import { createAction } from "../utils/reducer/reducer.utils";
 import { getCategoriesAndDocuments } from "../utils/firebase/firebase.utils.js";
@@ -36,7 +36,7 @@ export const CategoriesProvider = ({ children }) => {
   useEffect(() => {
     const getCategoriesMap = async () => {
       const categoryMap = await getCategoriesAndDocuments();
-      console.log(categoryMap);
+      // console.log(categoryMap);
       setCategoriesMap(categoryMap);
       /*
       'categoryMap' is an Object we receive it like below
