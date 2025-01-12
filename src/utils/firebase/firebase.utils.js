@@ -74,22 +74,18 @@ export const getCategoriesAndDocuments = async () => {
   const q = query(collectionRef);
 
   const querySnapshot = await getDocs(q);
-  const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
-    const { title, items } = docSnapshot.data();
-    acc[title.toLowerCase()] = items;
-    return acc;
-  }, {});
-  return categoryMap;
+  // below give 'categories' as an array
+  return querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
   /*
-      'categoryMap' is an Object we receive it like below
-      Object:{
-          crowns: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
-          crowns+dresses: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
-          dresses: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
-          full sets: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
-          varmalas: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
-          [[Prototype]]: Object
-        }
+result looks like this : (5) [{…}, {…}, {…}, {…}, {…}]
+Expanding it  gives:
+     0: {items: Array(8), title: 'CROWNS'}
+     1: {title: 'CROWNS+DRESSES', items: Array(8)}
+     2: {title: 'DRESSES', items: Array(8)}
+     3: {items: Array(8), title: 'FULL SETS'}
+     4: {items: Array(8), title: 'VARMALAS'}
+     length: 5
+[[Prototype]]: Array(0)
       */
 };
 
