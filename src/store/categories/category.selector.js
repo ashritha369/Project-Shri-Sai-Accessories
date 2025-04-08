@@ -1,14 +1,41 @@
-export const selectCategoriesMap = (state) => {
-  console.log("selector fired");
-  const categoriesMap = state.categories.categories.reduce(
-    (acc, { title, items }) => {
+import { createSelector } from "reselect";
+
+const selectCategoryReducer = (state) => {
+  console.log("selector 1 fired");
+  return state.categories;
+};
+// Below is also memoized selector
+export const selectCategories = createSelector(
+  [selectCategoryReducer],
+  (categoriesSlice) => {
+    console.log("selector 2 fired");
+    return categoriesSlice.categories;
+  }
+);
+// MEMOIZED VERSION : below is memoized selector
+export const selectCategoriesMap = createSelector(
+  [selectCategories],
+  (categories) => {
+    console.log("selector 3 fired");
+    return categories.reduce((acc, category) => {
+      const { title, items } = category;
       acc[title.toLowerCase()] = items;
       return acc;
-    },
-    {}
-  );
-  return categoriesMap;
-};
+    }, {});
+  }
+);
+// OLD WAY NOT MEMOIZED VERSION
+// export const selectCategoriesMap = (state) => {
+//   console.log("selector fired");
+//   const categoriesMap = state.categories.categories.reduce(
+//     (acc, { title, items }) => {
+//       acc[title.toLowerCase()] = items;
+//       return acc;
+//     },
+//     {}
+//   );
+//   return categoriesMap;
+// };
 
 /*
 ERROR ENCOUNTERING:
