@@ -1,3 +1,103 @@
+# Redux-Thunk with example
+
+Alright! Let’s now sweetly unwrap **Redux Thunk** 🍫
+
+---
+
+### Back to our bakery analogy 🍰:
+
+Remember, in Redux:
+
+- You **dispatch actions** (like orders),
+- Reducers (chefs 👨‍🍳) take those actions and update the state (inventory).
+
+But what if an order needs **some thinking or waiting** before it can be sent to the chef?
+
+> Example: "Only bake the cake if the customer **confirms the payment** online" 💳
+
+---
+
+### Enter **Redux Thunk** – your **thoughtful delivery person** 🛵💭
+
+- **Thunk** is just a **function that returns another function**.
+- It lets you **delay** the dispatching of actions.
+- You can **write async logic directly inside your actions**.
+
+---
+
+### What It Does 🍬
+
+Without Thunk:
+
+```js
+dispatch({ type: "MAKE_CAKE" });
+```
+
+With Thunk:
+
+```js
+dispatch((dispatch, getState) => {
+  // Think for a while...
+  if (getState().payment.confirmed) {
+    dispatch({ type: "MAKE_CAKE" });
+  }
+});
+```
+
+So basically, instead of just sending an action, you send a **function** that can:
+
+- Wait ⏳
+- Fetch 🛜
+- Check conditions ✅
+- Then dispatch the real action when ready 💥
+
+---
+
+### Use Case Example 🍫
+
+Let’s say you want to fetch ingredients before baking the cake:
+
+```js
+const fetchIngredients = () => {
+  return async (dispatch) => {
+    dispatch({ type: "FETCH_INGREDIENTS_START" });
+
+    try {
+      const response = await fetch("/api/ingredients");
+      const data = await response.json();
+
+      dispatch({ type: "FETCH_INGREDIENTS_SUCCESS", payload: data });
+    } catch (error) {
+      dispatch({ type: "FETCH_INGREDIENTS_FAIL", error });
+    }
+  };
+};
+```
+
+---
+
+### TL;DR 🍩
+
+**Redux Thunk** is a simple tool that lets you write **logic inside your action creators**. It's perfect for:
+
+- **Basic async flows**
+- Simple conditions
+- Making API calls before dispatching
+
+---
+
+| Feature    | Thunk 🧠          | Saga 🤖                               |
+| ---------- | ----------------- | ------------------------------------- |
+| Complexity | Simple to use     | More powerful                         |
+| Code Style | Async/Await       | Generator Functions                   |
+| Good for   | Basic async tasks | Complex flows, retries, cancellations |
+
+---
+
+Need help choosing between them or setting one up? I’ve got your back 🍪
+
+# Theoritical Explanation: Redux-Thunk
+
 Absolutely! Let’s start with a **clear explanation** of what Redux Thunk is, then I’ll show you how to write your **own custom version** of it.
 
 ---
