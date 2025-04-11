@@ -6,12 +6,12 @@ import Category from "../category/category.component";
 
 import "./shop.styles.scss";
 
-import { fetchCategoriesAsync } from "../../../store/categories/category.action";
+import { fetchCategoriesStart } from "../../../store/categories/category.action";
 
 const Shop = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchCategoriesAsync());
+    dispatch(fetchCategoriesStart());
   }, []);
 
   return (
