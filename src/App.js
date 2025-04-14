@@ -2,19 +2,17 @@ import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import { getCurrentUser } from "./utils/firebase/firebase.utils";
-
 import Home from "./components/routes/home/home.component";
 import Navigation from "./components/routes/navigation/navigation.component";
 import Authentication from "./components/routes/authentication/authentication.component";
 import Shop from "./components/routes/shop/shop.component";
 import Checkout from "./components/routes/checkout/checkout.component";
-
+import { checkUserSession } from "./store/user/user.action";
 import "./responsiveness/media-query.styles.scss";
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    getCurrentUser().then((user) => console.log(user));
+    dispatch(checkUserSession);
   }, []);
   return (
     <Routes>
