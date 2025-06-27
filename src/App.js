@@ -11,8 +11,9 @@ import { checkUserSession } from "./store/user/user.action";
 import "./responsiveness/media-query.styles.scss";
 const App = () => {
   const dispatch = useDispatch();
+
   useEffect(() => {
-    dispatch(checkUserSession);
+    dispatch(checkUserSession());
   }, []);
   return (
     <Routes>
