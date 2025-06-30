@@ -12,7 +12,7 @@ import Navigation from "./components/routes/navigation/navigation.component";
 import Authentication from "./components/routes/authentication/authentication.component";
 import Shop from "./components/routes/shop/shop.component";
 import Checkout from "./components/routes/checkout/checkout.component";
-import { setCurrentUser } from "./store/user/user.action";
+import { setCurrentUser } from "./store/user/user.reducer";
 import "./responsiveness/media-query.styles.scss";
 const App = () => {
   const dispatch = useDispatch();
@@ -23,7 +23,12 @@ const App = () => {
         //this 'user' is coming from 'createUserDocumentFromAuth' i.e from firebase utils
         createUserDocumentFromAuth(user);
       }
-      dispatch(setCurrentUser(user));
+      // serialising values that we need
+      //JavaScript shorthand, and it's doing destructuring + immediate invocation of an arrow function.
+      const pickedUser =
+        user && (({ accessToken, email }) => ({ accessToken, email }))(user);
+      console.log(setCurrentUser(pickedUser));
+      dispatch(setCurrentUser(pickedUser));
     });
     return unsubscribe;
   }, [dispatch]);
