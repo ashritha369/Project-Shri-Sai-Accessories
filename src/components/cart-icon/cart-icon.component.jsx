@@ -6,7 +6,7 @@ import {
   selectCartCount,
   selectIsCartOpen,
 } from "../../store/cart/cart.selector";
-import { setIsCartOpen } from "../../store/cart/cart.action";
+import { setIsCartOpen } from "../../store/cart/cart.reducer";
 
 import "./cart-icon.styles.scss";
 const CartIcon = () => {
